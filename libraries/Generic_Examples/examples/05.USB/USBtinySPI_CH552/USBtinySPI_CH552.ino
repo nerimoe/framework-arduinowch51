@@ -18,6 +18,8 @@
 
   This code is published under The GNU General Public License v3.0.
 
+  cli board options: usb_settings=user266
+
 */
 
 #ifndef USER_USB_RAM
@@ -31,11 +33,6 @@
 #include "src/tinySpiDWire/USBInit.h"
 #include "src/tinySpiDWire/hardwareShare.h"
 #include "src/tinySpiDWire/debugWireFunc.h"
-
-void Timer2Interrupt(void) __interrupt (INT_NO_TMR2)
-{
-    timer2IntrHandler();//debugwire related
-}
 
 extern __xdata uint8_t LineCoding[]; //lineCoding of CDC is located in this array
 __xdata uint32_t oldBaudRate = 9600;
@@ -55,7 +52,7 @@ void setup() {
   P1_DIR_PU &= ~( (1 << 5) | (1 << 6) | (1 << 7) );
   P1_MOD_OC &= ~( (1 << 5) | (1 << 6) | (1 << 7) );
   SPI0_SETUP = 0;
-  SPI0_CTRL = 0x60;    //mode 0
+  SPI0_CTRL = 0;    //mode 0
   //RESET P1.1
   P1_DIR_PU &= ~( (1 << 1) );
   P1_MOD_OC &= ~( (1 << 1) );
