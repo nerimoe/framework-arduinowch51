@@ -1,3 +1,5 @@
+#ifndef DONT_USE_UART1
+
 #include "HardwareSerial.h"
 
 __xdata uint8_t
@@ -43,3 +45,5 @@ void uart1IntTxHandler() {
     }
   }
 }
+
+#endif

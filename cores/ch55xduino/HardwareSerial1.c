@@ -1,3 +1,5 @@
+#ifndef DONT_USE_UART1
+
 #include "HardwareSerial.h"
 
 __xdata unsigned char serial1Initialized;
@@ -123,3 +125,4 @@ uint8_t Serial1_read(void) {
   }
   return 0;
 }
+#endif

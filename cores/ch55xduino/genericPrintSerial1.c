@@ -2,6 +2,7 @@
  created by Deqing Sun for use with CH55xduino
  need SDCC 13402 or higher version
  */
+#ifndef DONT_USE_UART1
 
 #include "Arduino.h"
 
@@ -19,3 +20,5 @@ void Serial1_print_s_func(char *__data s) { Print_print_s(Serial1_write, s); }
 void Serial1_print_sn_func(char *__data s, __xdata uint8_t size) {
   Print_print_sn(Serial1_write, s, size);
 }
+
+#endif
